@@ -36,3 +36,14 @@ eraser.addEventListener('click', function () {
   erasing();
   coloringBtn(eraser, clear, selectColor);
 });
+
+//3
+function cleaning() {
+  cubes.forEach(function (cube) {
+    cube.style.backgroundColor = 'white';
+  });
+}
+clear.addEventListener('click', function () {
+  cleaning();
+  coloringBtn(clear, eraser, selectColor);
+});

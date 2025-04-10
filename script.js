@@ -47,3 +47,15 @@ clear.addEventListener('click', function () {
   cleaning();
   coloringBtn(clear, eraser, selectColor);
 });
+//4
+function coloringBtn(btnOne, btnTwo, btnThree) {
+  btnOne.style.backgroundColor = 'white';
+  btnOne.style.color = 'black';
+  btnOne.style.borderColor = 'black';
+  btnTwo.style.backgroundColor = 'black';
+  btnTwo.style.color = 'white';
+  btnTwo.style.borderColor = 'white';
+  btnThree.style.backgroundColor = 'black';
+  btnThree.style.color = 'white';
+  btnThree.style.borderColor = 'white';
+}

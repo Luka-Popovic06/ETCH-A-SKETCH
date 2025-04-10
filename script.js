@@ -23,3 +23,16 @@ selectColor.addEventListener('click', function () {
   selecting();
   coloringBtn(selectColor, eraser, clear);
 });
+//2
+
+function erasing() {
+  cubes.forEach(function (cube) {
+    cube.addEventListener('mouseover', function () {
+      cube.style.backgroundColor = 'white';
+    });
+  });
+}
+eraser.addEventListener('click', function () {
+  erasing();
+  coloringBtn(eraser, clear, selectColor);
+});

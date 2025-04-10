@@ -10,3 +10,16 @@ inputColor.addEventListener('input', function (e) {
   color = e.target.value;
   sketch.style.color = color;
 });
+//1
+
+function selecting() {
+  cubes.forEach(function (cube) {
+    cube.addEventListener('mouseover', function () {
+      cube.style.backgroundColor = color;
+    });
+  });
+}
+selectColor.addEventListener('click', function () {
+  selecting();
+  coloringBtn(selectColor, eraser, clear);
+});

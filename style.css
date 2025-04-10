@@ -19,13 +19,17 @@ h1 {
 }
 /*MAIN*/
 main {
+  margin-top: 110px;
   display: flex;
-  background-color: aqua;
+  gap: 20%;
+  align-items: center;
+  justify-content: center;
 }
 #mini-box-1 {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100px;
   align-items: center;
 }
 .inp-color {
@@ -61,4 +65,17 @@ main {
 .btn-clear:hover {
   padding: 9px 47px;
   transition: 0.2s;
+}
+/*GRID*/
+.grid-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 2px;
+  row-gap: 2px;
+}
+.cube {
+  background-color: white;
+  width: 40px;
+  height: 40px;
 }

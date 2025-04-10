@@ -15,7 +15,7 @@ h1 {
 }
 #span-1 {
   font-size: 65px;
-  color: brown;
+  color: #ff0000;
 }
 /*MAIN*/
 main {
@@ -37,9 +37,27 @@ main {
   background-color: black;
   width: 65px;
   height: 40px;
+  cursor: pointer;
+}
+.btn-mode {
+  width: 120px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  font-family: sans-serif;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: 1.9px solid white;
+}
+.btn-mode:hover {
+  width: 125px;
+  height: 40px;
+  transition: 0.2s;
 }
 .btn-eraser {
-  padding: 6px 41px;
+  width: 120px;
+  height: 35px;
   border-radius: 5px;
   border: none;
   font-family: sans-serif;
@@ -49,12 +67,14 @@ main {
   border: 1.9px solid white;
 }
 .btn-eraser:hover {
-  padding: 9px 47px;
+  width: 125px;
+  height: 40px;
   transition: 0.2s;
 }
 .btn-clear {
   font-family: sans-serif;
-  padding: 5px 45px;
+  width: 120px;
+  height: 35px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -63,7 +83,8 @@ main {
   border: 1.9px solid white;
 }
 .btn-clear:hover {
-  padding: 9px 47px;
+  width: 125px;
+  height: 40px;
   transition: 0.2s;
 }
 /*GRID*/
@@ -78,4 +99,5 @@ main {
   background-color: white;
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }

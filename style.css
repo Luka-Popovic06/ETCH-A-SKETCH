@@ -20,4 +20,45 @@ h1 {
 /*MAIN*/
 main {
   display: flex;
+  background-color: aqua;
+}
+#mini-box-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.inp-color {
+  border: none;
+  background-color: black;
+  width: 65px;
+  height: 40px;
+}
+.btn-eraser {
+  padding: 6px 41px;
+  border-radius: 5px;
+  border: none;
+  font-family: sans-serif;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: 1.9px solid white;
+}
+.btn-eraser:hover {
+  padding: 9px 47px;
+  transition: 0.2s;
+}
+.btn-clear {
+  font-family: sans-serif;
+  padding: 5px 45px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: 1.9px solid white;
+}
+.btn-clear:hover {
+  padding: 9px 47px;
+  transition: 0.2s;
 }

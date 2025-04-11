@@ -6,35 +6,30 @@ const cubes = document.querySelectorAll('.cube');
 const sketch = document.querySelector('#span-1');
 const selectColor = document.querySelector('.btn-mode');
 let color;
+let cool;
 inputColor.addEventListener('input', function (e) {
   color = e.target.value;
   sketch.style.color = color;
+  coloringBtn(inputColor, selectColor, eraser, clear);
 });
+
 //1
 
-function selecting() {
-  cubes.forEach(function (cube) {
-    cube.addEventListener('mouseover', function () {
-      cube.style.backgroundColor = color;
-    });
+cubes.forEach(function (cube) {
+  cube.addEventListener('mouseover', function () {
+    cube.style.backgroundColor = color;
   });
-}
+});
+
 selectColor.addEventListener('click', function () {
-  selecting();
-  coloringBtn(selectColor, eraser, clear);
+  color = inputColor.value;
+  coloringBtn(selectColor, eraser, clear, inputColor);
 });
 //2
 
-function erasing() {
-  cubes.forEach(function (cube) {
-    cube.addEventListener('mouseover', function () {
-      cube.style.backgroundColor = 'white';
-    });
-  });
-}
 eraser.addEventListener('click', function () {
-  erasing();
-  coloringBtn(eraser, clear, selectColor);
+  color = 'white';
+  coloringBtn(eraser, clear, selectColor, inputColor);
 });
 
 //3
@@ -45,10 +40,10 @@ function cleaning() {
 }
 clear.addEventListener('click', function () {
   cleaning();
-  coloringBtn(clear, eraser, selectColor);
+  coloringBtn(clear, eraser, selectColor, inputColor);
 });
 //4
-function coloringBtn(btnOne, btnTwo, btnThree) {
+function coloringBtn(btnOne, btnTwo, btnThree, btnFour) {
   btnOne.style.backgroundColor = 'white';
   btnOne.style.color = 'black';
   btnOne.style.borderColor = 'black';
@@ -58,4 +53,7 @@ function coloringBtn(btnOne, btnTwo, btnThree) {
   btnThree.style.backgroundColor = 'black';
   btnThree.style.color = 'white';
   btnThree.style.borderColor = 'white';
+  btnFour.style.backgroundColor = 'black';
+  btnFour.style.color = 'white';
+  btnFour.style.borderColor = 'white';
 }

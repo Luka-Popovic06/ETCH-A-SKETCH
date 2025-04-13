@@ -5,31 +5,47 @@ const clear = document.querySelector('.btn-clear');
 const cubes = document.querySelectorAll('.cube');
 const sketch = document.querySelector('#span-1');
 const selectColor = document.querySelector('.btn-mode');
+const btnRandom = document.querySelector('.btn-random');
+let rgbColor;
+let randomMode;
+btnRandom.addEventListener('click', function () {
+  randomMode = true;
+  coloringBtn(btnRandom, inputColor, selectColor, eraser, clear);
+});
 let color;
 let cool;
 inputColor.addEventListener('input', function (e) {
+  randomMode = false;
   color = e.target.value;
   sketch.style.color = color;
-  coloringBtn(inputColor, selectColor, eraser, clear);
+  coloringBtn(inputColor, selectColor, eraser, clear, btnRandom);
 });
 
 //1
-
 cubes.forEach(function (cube) {
   cube.addEventListener('mouseover', function () {
+    if (randomMode === true) {
+      let red = Math.trunc(Math.random() * 255) + 1;
+      let blue = Math.trunc(Math.random() * 255) + 1;
+      let yellow = Math.trunc(Math.random() * 255) + 1;
+      rgbColor = `RGB(${red}, ${blue}, ${yellow})`;
+      color = rgbColor;
+    }
     cube.style.backgroundColor = color;
   });
 });
 
 selectColor.addEventListener('click', function () {
+  randomMode = false;
   color = inputColor.value;
-  coloringBtn(selectColor, eraser, clear, inputColor);
+  coloringBtn(selectColor, eraser, clear, inputColor, btnRandom);
 });
 //2
 
 eraser.addEventListener('click', function () {
+  randomMode = false;
   color = 'white';
-  coloringBtn(eraser, clear, selectColor, inputColor);
+  coloringBtn(eraser, clear, selectColor, inputColor, btnRandom);
 });
 
 //3
@@ -39,11 +55,12 @@ function cleaning() {
   });
 }
 clear.addEventListener('click', function () {
+  randomMode = false;
   cleaning();
-  coloringBtn(clear, eraser, selectColor, inputColor);
+  coloringBtn(clear, eraser, selectColor, inputColor, btnRandom);
 });
 //4
-function coloringBtn(btnOne, btnTwo, btnThree, btnFour) {
+function coloringBtn(btnOne, btnTwo, btnThree, btnFour, btnFive) {
   btnOne.style.backgroundColor = 'white';
   btnOne.style.color = 'black';
   btnOne.style.borderColor = 'black';
@@ -56,4 +73,7 @@ function coloringBtn(btnOne, btnTwo, btnThree, btnFour) {
   btnFour.style.backgroundColor = 'black';
   btnFour.style.color = 'white';
   btnFour.style.borderColor = 'white';
+  btnFive.style.backgroundColor = 'black';
+  btnFive.style.color = 'white';
+  btnFive.style.borderColor = 'white';
 }

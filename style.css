@@ -117,3 +117,16 @@ main {
   height: 40px;
   cursor: pointer;
 }
+.inp-range {
+  appearance: none; /*Bitno*/
+  background-color: rgb(0, 0, 0);
+  border-radius: 15px;
+}
+.inp-range::-webkit-slider-thumb {
+  appearance: none;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  background-color: #ffffff;
+  cursor: pointer;
+}

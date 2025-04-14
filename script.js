@@ -22,9 +22,14 @@ inputColor.addEventListener('input', function (e) {
 });
 
 //1
+/* Maknuti iz html-a divove
+2.Napraviti isti izgled grida kao sto mi je sad ali preko javascripta
+3.kad je to napravljeno onda pokusam da napravim funkciju koja moze da primi argument
+taj argument predstavlja  broj redova i kolona(npr.ako je argument 6, to znaci 6x6 grid)
+taj argument treba da dolazi u funkciju iz inputa*/
 cubes.forEach(function (cube) {
   cube.addEventListener('mouseover', function () {
-    if (randomMode === true) {
+    if (randomMode) {
       let red = Math.trunc(Math.random() * 255) + 1;
       let blue = Math.trunc(Math.random() * 255) + 1;
       let yellow = Math.trunc(Math.random() * 255) + 1;

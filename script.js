@@ -29,6 +29,10 @@ inputRange.addEventListener('input', function (e) {
   createGrid(cubeSaiz);
   addingRowColums(cubeSaiz);
 });
+function addingRowColums(Number) {
+  gridBox.style.gridTemplateColumns = `repeat(${Number}, 1fr)`;
+  gridBox.style.gridTemplateRows = `repeat(${Number}, 1fr)`;
+}
 
 selectColor.addEventListener('click', function () {
   randomMode = false;

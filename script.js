@@ -1,11 +1,12 @@
 'use strict';
 const inputColor = document.querySelector('.inp-color');
+const inputRange = document.querySelector('.inp-range');
 const eraser = document.querySelector('.btn-eraser');
 const clear = document.querySelector('.btn-clear');
-const cubes = document.querySelectorAll('.cube');
 const sketch = document.querySelector('#span-1');
 const selectColor = document.querySelector('.btn-mode');
 const btnRandom = document.querySelector('.btn-random');
+const gridBox = document.querySelector('.grid-box');
 let rgbColor;
 let randomMode;
 btnRandom.addEventListener('click', function () {
@@ -20,24 +21,13 @@ inputColor.addEventListener('input', function (e) {
   sketch.style.color = color;
   coloringBtn(inputColor, selectColor, eraser, clear, btnRandom);
 });
-
-//1
-/* Maknuti iz html-a divove
-2.Napraviti isti izgled grida kao sto mi je sad ali preko javascripta
-3.kad je to napravljeno onda pokusam da napravim funkciju koja moze da primi argument
-taj argument predstavlja  broj redova i kolona(npr.ako je argument 6, to znaci 6x6 grid)
-taj argument treba da dolazi u funkciju iz inputa*/
-cubes.forEach(function (cube) {
-  cube.addEventListener('mouseover', function () {
-    if (randomMode) {
-      let red = Math.trunc(Math.random() * 255) + 1;
-      let blue = Math.trunc(Math.random() * 255) + 1;
-      let yellow = Math.trunc(Math.random() * 255) + 1;
-      rgbColor = `RGB(${red}, ${blue}, ${yellow})`;
-      color = rgbColor;
-    }
-    cube.style.backgroundColor = color;
-  });
+///////new//////
+let cubeSaiz;
+inputRange.addEventListener('input', function (e) {
+  cubeSaiz = Number(e.target.value);
+  gridBox.innerHTML = '';
+  createGrid(cubeSaiz);
+  addingRowColums(cubeSaiz);
 });
 
 selectColor.addEventListener('click', function () {
@@ -55,6 +45,7 @@ eraser.addEventListener('click', function () {
 
 //3
 function cleaning() {
+  const cubes = document.querySelectorAll('.cube');
   cubes.forEach(function (cube) {
     cube.style.backgroundColor = 'white';
   });

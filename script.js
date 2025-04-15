@@ -33,6 +33,23 @@ function addingRowColums(Number) {
   gridBox.style.gridTemplateColumns = `repeat(${Number}, 1fr)`;
   gridBox.style.gridTemplateRows = `repeat(${Number}, 1fr)`;
 }
+function createGrid(size) {
+  for (let i = 0; i < size * size; i++) {
+    const cube = document.createElement('div');
+    cube.classList.add('cube');
+    cube.addEventListener('mouseover', function () {
+      if (randomMode) {
+        let red = Math.trunc(Math.random() * 255) + 1;
+        let blue = Math.trunc(Math.random() * 255) + 1;
+        let yellow = Math.trunc(Math.random() * 255) + 1;
+        rgbColor = `RGB(${red}, ${blue}, ${yellow})`;
+        color = rgbColor;
+      }
+      cube.style.backgroundColor = color;
+    });
+    gridBox.appendChild(cube);
+  }
+}
 
 selectColor.addEventListener('click', function () {
   randomMode = false;

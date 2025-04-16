@@ -1,4 +1,6 @@
 'use strict';
+const spanNumber = document.querySelector('.span-2');
+const spanNumberTwo = document.querySelector('.span-3');
 const inputColor = document.querySelector('.inp-color');
 const inputRange = document.querySelector('.inp-range');
 const eraser = document.querySelector('.btn-eraser');
@@ -21,11 +23,12 @@ inputColor.addEventListener('input', function (e) {
   sketch.style.color = color;
   coloringBtn(inputColor, selectColor, eraser, clear, btnRandom);
 });
-///////new//////
 let cubeSaiz;
 inputRange.addEventListener('input', function (e) {
   cubeSaiz = Number(e.target.value);
   gridBox.innerHTML = '';
+  spanNumber.textContent = cubeSaiz;
+  spanNumberTwo.textContent = cubeSaiz;
   createGrid(cubeSaiz);
   addingRowColums(cubeSaiz);
 });
@@ -63,21 +66,16 @@ cubes.forEach(function (cube) {
     cube.style.backgroundColor = color;
   });
 });
-
 selectColor.addEventListener('click', function () {
   randomMode = false;
   color = inputColor.value;
   coloringBtn(selectColor, eraser, clear, inputColor, btnRandom);
 });
-//2
-
 eraser.addEventListener('click', function () {
   randomMode = false;
   color = 'white';
   coloringBtn(eraser, clear, selectColor, inputColor, btnRandom);
 });
-
-//3
 function cleaning() {
   const cubes = document.querySelectorAll('.cube');
   color = 'white';
@@ -90,7 +88,6 @@ clear.addEventListener('click', function () {
   cleaning();
   coloringBtn(clear, eraser, selectColor, inputColor, btnRandom);
 });
-//4
 function coloringBtn(btnOne, btnTwo, btnThree, btnFour, btnFive) {
   btnOne.style.backgroundColor = 'white';
   btnOne.style.color = 'black';

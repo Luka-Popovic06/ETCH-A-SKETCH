@@ -50,6 +50,19 @@ function createGrid(size) {
     gridBox.appendChild(cube);
   }
 }
+const cubes = document.querySelectorAll('.cube');
+cubes.forEach(function (cube) {
+  cube.addEventListener('mouseover', function () {
+    if (randomMode) {
+      let red = Math.trunc(Math.random() * 255) + 1;
+      let blue = Math.trunc(Math.random() * 255) + 1;
+      let yellow = Math.trunc(Math.random() * 255) + 1;
+      rgbColor = `RGB(${red}, ${blue}, ${yellow})`;
+      color = rgbColor;
+    }
+    cube.style.backgroundColor = color;
+  });
+});
 
 selectColor.addEventListener('click', function () {
   randomMode = false;
@@ -67,6 +80,7 @@ eraser.addEventListener('click', function () {
 //3
 function cleaning() {
   const cubes = document.querySelectorAll('.cube');
+  color = 'white';
   cubes.forEach(function (cube) {
     cube.style.backgroundColor = 'white';
   });
